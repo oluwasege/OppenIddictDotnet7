@@ -6,7 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OppenIddictDotnet7.Core.AspnetCore.Identity
+namespace OpenIddictDotnet7.Core.AspnetCore.Identity
 {
     public class UserPrincipal : ClaimsPrincipal
     {
@@ -24,38 +24,11 @@ namespace OppenIddictDotnet7.Core.AspnetCore.Identity
             return claim?.Value;
         }
 
-        public string? UserName
-        {
-            get
-            {
-                if (FindFirst(JwtClaimTypes.Id) == null)
-                    return string.Empty;
+        public string? UserName => FindFirst(JwtClaimTypes.Id) == null ? string.Empty : GetClaimValue(JwtClaimTypes.Id);
 
-                return GetClaimValue(JwtClaimTypes.Id);
-            }
-        }
+        public string? Email => FindFirst(JwtClaimTypes.Email) == null ? string.Empty : GetClaimValue(JwtClaimTypes.Email);
 
-        public string? Email
-        {
-            get
-            {
-                if (FindFirst(JwtClaimTypes.Email) == null)
-                    return string.Empty;
-
-                return GetClaimValue(JwtClaimTypes.Email);
-            }
-        }
-
-        public int UserId
-        {
-            get
-            {
-                if (FindFirst(JwtClaimTypes.Subject) == null)
-                    return default;
-
-                return Convert.ToInt32(GetClaimValue(JwtClaimTypes.Subject));
-            }
-        }
+        public int UserId => FindFirst(JwtClaimTypes.Subject) == null ? default : Convert.ToInt32(GetClaimValue(JwtClaimTypes.Subject));
 
         public string FirstName
         {
@@ -63,10 +36,7 @@ namespace OppenIddictDotnet7.Core.AspnetCore.Identity
             {
                 var usernameClaim = FindFirst(JwtClaimTypes.GivenName);
 
-                if (usernameClaim == null)
-                    return string.Empty;
-
-                return usernameClaim.Value;
+                return usernameClaim == null ? string.Empty : usernameClaim.Value;
             }
         }
 
@@ -76,10 +46,7 @@ namespace OppenIddictDotnet7.Core.AspnetCore.Identity
             {
                 var usernameClaim = FindFirst(JwtClaimTypes.FamilyName);
 
-                if (usernameClaim == null)
-                    return string.Empty;
-
-                return usernameClaim.Value;
+                return usernameClaim == null ? string.Empty : usernameClaim.Value;
             }
         }
 

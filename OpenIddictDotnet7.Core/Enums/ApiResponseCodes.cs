@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OppenIddictDotnet7.Core.Enums
+namespace OpenIddictDotnet7.Core.Enums
 {
     public enum ApiResponseCodes
     {

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7e5948ff-2d9f-4cf4-bbbd-8de2731233e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.Core/AspnetCore/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.Core/AspnetCore/BaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.Core/AspnetCore/HttpUserService/IHttpUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.Core/AspnetCore/HttpUserService/IHttpUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.Core/AspnetCore/Identity/UserPrincipal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.Core/AspnetCore/Identity/UserPrincipal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.Core/Enums/ApiResponseCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.Core/Enums/ApiResponseCodes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.Core/Extensions/EnumExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.Core/Extensions/EnumExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.Core/OppenIddictDotnet7.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.Core/OpenIddictDotnet7.Core.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.Core/ViewModels/ApiResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.Core/ViewModels/ApiResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OppenIddictDotnet7.sln" beforeDir="false" afterPath="$PROJECT_DIR$/OpenIddictDotnet7.sln" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2M093gRl4XV2MqJ22fDZbCZ37pk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e5948ff-2d9f-4cf4-bbbd-8de2731233e8" name="Changes" comment="" />
+      <created>1676893438955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676893438955</updated>
+      <workItem from="1676893457262" duration="301000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

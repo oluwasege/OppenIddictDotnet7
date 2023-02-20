@@ -1,6 +1,6 @@
-﻿using OppenIddictDotnet7.Core.Enums;
+﻿using OpenIddictDotnet7.Core.Enums;
 
-namespace OppenIddictDotnet7.Core.ViewModels
+namespace OpenIddictDotnet7.Core.ViewModels
 {
     public class ApiResponse
     {
@@ -16,7 +16,7 @@ namespace OppenIddictDotnet7.Core.ViewModels
         public int TotalCount { get; set; }
         public string ResponseCode { get; set; }
 
-        public ApiResponse(T data = default, string message = "",
+        public ApiResponse(T data = default!, string message = "",
             ApiResponseCodes codes = ApiResponseCodes.OK, int? totalCount = 0, params string[] errors)
         {
             Payload = data;

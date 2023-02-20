@@ -1,19 +1,12 @@
-﻿using log4net;
+﻿using System.Diagnostics.CodeAnalysis;
+using log4net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using OppenIddictDotnet7.Core.AspnetCore.Identity;
-using OppenIddictDotnet7.Core.Enums;
-using OppenIddictDotnet7.Core.Extensions;
-using OppenIddictDotnet7.Core.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+using OpenIddictDotnet7.Core.AspnetCore.Identity;
+using OpenIddictDotnet7.Core.Enums;
+using OpenIddictDotnet7.Core.Extensions;
+using OpenIddictDotnet7.Core.ViewModels;
 
-namespace OppenIddictDotnet7.Core.AspnetCore
+namespace OpenIddictDotnet7.Core.AspnetCore
 {
     public class BaseController : ControllerBase
     {
@@ -23,13 +16,7 @@ namespace OppenIddictDotnet7.Core.AspnetCore
             _logger = LogManager.GetLogger(typeof(BaseController));
         }
 
-        protected UserPrincipal CurrentUser
-        {
-            get
-            {
-                return new UserPrincipal(User);
-            }
-        }
+        protected UserPrincipal CurrentUser => new UserPrincipal(User);
 
         /// <summary>
         /// To Read Model Errors into a collection of string
@@ -58,12 +45,13 @@ namespace OppenIddictDotnet7.Core.AspnetCore
             return Ok(rsp);
 #endif
         }
-        public IActionResult ApiResponse<T>(T data = default,
+        public IActionResult ApiResponse<T>([DisallowNull] T data = default!,
                                             string message = "",
                                             ApiResponseCodes codes = ApiResponseCodes.OK,
                                             int? totalCount = 0,
                                             params string[] errors)
         {
+            if (data == null) throw new ArgumentNullException(nameof(data));
             var response = new ApiResponse<T>(data, message, codes, totalCount, errors);
             response.Description = message ?? response.Code.GetDescription();
             return Ok(response);
