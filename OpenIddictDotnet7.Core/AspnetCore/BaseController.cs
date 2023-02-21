@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 using OpenIddictDotnet7.Core.AspnetCore.Identity;
@@ -55,6 +56,45 @@ namespace OpenIddictDotnet7.Core.AspnetCore
             var response = new ApiResponse<T>(data, message, codes, totalCount, errors);
             response.Description = message ?? response.Code.GetDescription();
             return Ok(response);
+        }
+
+        protected async Task<ApiResponse<T>> HandleApiOperationAsync<T>(Func<Task<ApiResponse<T>>> action,
+            [CallerLineNumber] int lineNo = 0, [CallerMemberName] string method = "")
+        {
+            var apiResponse = new ApiResponse<T>
+            {
+                Code = ApiResponseCodes.OK
+            };
+
+            try
+            {
+                var methodResponse = await action.Invoke();
+                
+                apiResponse.ResponseCode = methodResponse.ResponseCode;
+                apiResponse.Payload = methodResponse.Payload;
+                apiResponse.TotalCount = methodResponse.TotalCount;
+                apiResponse.Code = methodResponse.Code;
+                apiResponse.Errors = methodResponse.Errors;
+                apiResponse.Description = string.IsNullOrEmpty(apiResponse.Description)
+                    ? methodResponse.Description
+                    : apiResponse.Description;
+
+                return apiResponse;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.StackTrace,ex);
+                apiResponse.Code = ApiResponseCodes.EXCEPTION;
+                
+#if DEBUG
+                apiResponse.Description = $"Error: {ex.InnerException?.Message ?? ex.Message}-->{ex?.StackTrace}";
+#else
+                
+                apiResponse.Description = "System error occurred. Please contact application support!";
+#endif
+                apiResponse.Errors.Add(apiResponse.Description);
+                return apiResponse;
+            }
         }
     }
 }
